@@ -18,7 +18,7 @@ const sayHelloLater = (callback: (message: string) => void): void => {
 sayHelloLater((message) => {
     console.log(message);
 });
-*/
+
 
 //math callback
 
@@ -33,3 +33,15 @@ const printResult = (result: number) => {
     console.log("The result is", result);
 }
 calculate(45, 23, printResult);
+*/
+//denna gånger ska den retunera string och inte void för att retunera ett värde
+type stringCallback = (message: string) => string;
+
+const toUpperCaseCallback = (message: string, callback: stringCallback): void => { //måste ha med void här för att touppercase retunerar inget.
+    const result =callback(message); //sparar resultaten här
+    console.log(result);
+}
+const makeUpperCase = (str: string): string => {
+    return str.toUpperCase()
+}
+toUpperCaseCallback("hej michiel callbacks är väldigt jobbiga:(", makeUpperCase);
