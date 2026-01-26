@@ -45,7 +45,7 @@ const makeUpperCase = (str: string): string => {
     return str.toUpperCase()
 }
 toUpperCaseCallback("hej michiel callbacks är väldigt jobbiga:(", makeUpperCase);
-*/
+
 
 //pizza order
 type orderStatusFunction = (message: string) => void;
@@ -61,4 +61,20 @@ const orderStatus = (message: string): void => {
     console.log(message)
 };
 orderPizza(orderStatus);
+*/
 
+//7, download simulation
+type showFileFunction = (fileContent: string) => void
+
+const downloadFile = (url: string, showFile: showFileFunction) => { //detta tar in 2 argument url och showFile. Showfile är callback function.
+    console.log("starting download from", url);
+    setTimeout(() => {
+        const fileContent = `downloaded data from ${url}`;
+        showFile(fileContent);
+    }, 2000);
+};
+
+const showFile = (fileContent: string) => {
+    console.log("downloaded content:", fileContent);
+};
+downloadFile("http://ex.com/file.txt", showFile);
