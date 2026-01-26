@@ -1,4 +1,4 @@
-//hello callback
+/*//hello callback
     //här tas det emot callback funktion som parameter
     const helloCallback = (callback: (message: string) => void): void => {
         callback(`hello from callback!`) //ropar på callbacken och skickar med en sträng som argument
@@ -18,3 +18,18 @@ const sayHelloLater = (callback: (message: string) => void): void => {
 sayHelloLater((message) => {
     console.log(message);
 });
+*/
+
+//math callback
+
+type printResultFunction = (result: number) => void;
+
+const calculate = (a: number, b: number, callback: printResultFunction): void => {
+    const result = a + b;
+    callback(result);
+
+};
+const printResult = (result: number) => {
+    console.log("The result is", result);
+}
+calculate(45, 23, printResult);
