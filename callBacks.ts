@@ -12,9 +12,9 @@
 //eftersom jag kör setTimeout->anropar callback så finns inget värde att retunera därav "void"
 const sayHelloLater = (callback: (message: string) => void): void => {
     setTimeout(() => {
-    Callback(`hi I'm late`);
+    callback(`hi I'm late`);
     }, 2000);
 }
 sayHelloLater((message) => {
-    console.log(message;)
+    console.log(message);
 });
