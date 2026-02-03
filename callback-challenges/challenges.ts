@@ -25,7 +25,7 @@ Create a function called map that takes two inputs:
 1. An array of numbers (a list of numbers)
 2. A 'callback' function - a function that is applied to each element of the array (inside of the function 'map')
 Have map return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array.
-*/
+
 
 const map = (array: any[], callback:(num: number) => number): number[] => {
   const result: number[] = []; //I create a new array to store the results
@@ -37,21 +37,27 @@ const map = (array: any[], callback:(num: number) => number): number[] => {
 }
 const addTwo = (num: number): number => num + 2;
 console.log(map([1, 2, 3], addTwo));
-
+*/
 // ________________________________________________________________________________________________
-// Challenge 4
+// Challenge 4 DONE
 /*
 The function forEach takes an array and a callback, and runs the callback on each element of the array.
 forEach does not return anything.
 */
 
-/* let alphabet = "";
+const forEach = (array: string[], callback: (item: string) => void): void => {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i]);
+  }
+};
+let alphabet = "";
 const letters = ["a", "b", "c", "d"];
 forEach(letters, function (char) {
   alphabet += char;
 });
+
 console.log(alphabet);
-*/
+
 
 // should output abcd
 
