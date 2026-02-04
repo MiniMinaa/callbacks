@@ -69,20 +69,23 @@ type callbackType = (char: any) => void;
 
 const forEach = (array: number[], callback: callbackType) => {
   for (let i = 0; i < array.length; i++) {
-    callback(array);
+    callback(array[i]);
   }
 };
 
 type addTwoType = (num: number) => number;
+
 const addTwo = (num: number): number => {
   return num + 2;
 }
 
 const mapWith = (array: number[], addTwo: addTwoType) => {
   const newArr: number[] = [];
-  forEach(array, [item: number] => {
-    newArr.push(addTwo(item)):
+
+  forEach(array, (item: number) => {
+    newArr.push(addTwo(item));
   });
+  return newArr;
 };
 
 console.log(mapWith([1, 2, 3], addTwo));
