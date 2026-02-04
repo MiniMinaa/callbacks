@@ -25,39 +25,36 @@ Create a function called map that takes two inputs:
 1. An array of numbers (a list of numbers)
 2. A 'callback' function - a function that is applied to each element of the array (inside of the function 'map')
 Have map return a new array filled with numbers that are the result of using the 'callback' function on each element of the input array.
-*/
 
-const map = (array: any[], callback:(num: number) => number): number[] => {
-  const result: number[] = []; //I create a new array to store the results
-  for (let i = 0; i < array.length; i++) { //using loops thru each element in the input array
-    const newValue = callback(array[i]); //applies the callback to the current element
-    result.push(newValue); // add the new value to the result array
+type addTwoFunctionType = (num: number) => number;
+
+const map = (array: number[], addTwo: addTwoFunctionType => {
+    return array.map(addTwo);
   }
-  return result;
-}
-const addTwo = (num: number): number => num + 2;
-console.log(map([1, 2, 3], addTwo));
 
+console.log(map([1, 2, 3], addTwo));
+*/
 // ________________________________________________________________________________________________
 // Challenge 4 DONE
 /*
 The function forEach takes an array and a callback, and runs the callback on each element of the array.
 forEach does not return anything.
-*/
 
-const forEach = (array: string[], callback: (item: string) => void): void => {
+type callbackType = (char: any) => void;
+
+const forEach = (array: string[], callback: callbackType) => {
   for (let i = 0; i < array.length; i++) {
-    callback(array[i]);
+    callback(array);
   }
 };
 let alphabet = "";
 const letters = ["a", "b", "c", "d"];
-forEach(letters, function (char) {
+forEach(letters, function (char: any) {
   alphabet += char;
 });
 
 console.log(alphabet);
-
+*/
 
 // should output abcd
 
@@ -68,15 +65,24 @@ Rebuild your map function, this time instead of using a for loop, use your own f
 Call this new function mapWith.//console.log(mapWith([1, 2, 3], addTwo));
 */
 
-const mapWith =(array: number[], callback: (num: number) => number): number[] => {
-  const result: number [] = [];
+type callbackType = (char: any) => void;
 
-  forEach(array, function (num) {
-    const newValue = callback(num);
-    result.push(newValue);
-  })
-  return result;
+const forEach = (array: number[], callback: callbackType) => {
+  for (let i = 0; i < array.length; i++) {
+    callback(array);
+  }
+};
+
+type addTwoType = (num: number) => number;
+const addTwo = (num: number): number => {
+  return num + 2;
 }
 
+const mapWith = (array: number[], addTwo: addTwoType) => {
+  const newArr: number[] = [];
+  forEach(array, [item: number] => {
+    newArr.push(addTwo(item)):
+  });
+};
 
 console.log(mapWith([1, 2, 3], addTwo));
